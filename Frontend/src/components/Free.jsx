@@ -1,6 +1,7 @@
-import React from 'react'
-import list from "../../public/list.json"
+import React, { useState,useEffect } from 'react'
+// import list from "../../public/list.json"
 
+import axios from 'axios'
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -8,7 +9,20 @@ import Slider from "react-slick";
 import Cards from './Cards';
 
 function Free() {
-    const filterData = list.filter((data)=> data.category==="Free");
+  const [cour,setCour]=useState([]);
+  useEffect(()=>{
+    const getcour = async()=>{
+      try {
+        const res = await axios.get("http://localhost:4001/Course");
+        // console.log(res.data);
+        setCour(res.data)
+      } catch (error) {
+        console.log(error)
+      }
+    }
+    getcour();
+   },[])
+    const filterData = cour.filter((data)=> data.category==="Free");
     // console.log(filterData);
 
     var settings = {

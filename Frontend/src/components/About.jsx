@@ -9,7 +9,7 @@ function About() {
         <div className="min-h-screen flex justify-center items-center flex-col gap-5">
         <div className="avatar flex justify-center items-center h-64 w-64">
             <div className="rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-            <img src='../../public/My-PIC-crop.jpeg' />
+            <img src='../../My-PIC-crop.jpeg' />
         </div>
         
         </div>

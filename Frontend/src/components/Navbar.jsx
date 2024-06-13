@@ -1,7 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import Login from './Login';
+import Logout from './Logout';
+
+import { useAuth } from '../context/AuthProvider';
 
 function Navbar() {
+  const [authUser,setAuthUser] = useAuth()
+  // console.log(authUser)
   const [theme,setTheme] = useState(localStorage.getItem("theme")?localStorage.getItem("theme"):"light")
 
   const element = document.documentElement;
@@ -65,7 +70,7 @@ function Navbar() {
       {navItems}
       </ul>
     </div>
-    <a className="text-2xl font-bold cursor-pointer">ProjStre</a>
+    <a className="text-2xl font-bold cursor-pointer" href='/'>ProjStre</a>
   </div>
   <div className="navbar-end space-x-3 ">
   <div className="navbar-center hidden lg:flex">
@@ -95,11 +100,19 @@ function Navbar() {
   
 </label>
 </div>
+{
+  authUser?<Logout/>:
   <div className="">
     <a className="bg-black px-3 py-2 text-white  rounded-md hover:bg-slate-800 duration-300 cursor-pointer" onClick={()=>
       document.getElementById("my_modal_3").showModal()}>Login</a>
     <Login />
   </div>
+}
+  {/* <div className="">
+    <a className="bg-black px-3 py-2 text-white  rounded-md hover:bg-slate-800 duration-300 cursor-pointer" onClick={()=>
+      document.getElementById("my_modal_3").showModal()}>Login</a>
+    <Login />
+  </div> */}
 </div>
 </div>
     </div>

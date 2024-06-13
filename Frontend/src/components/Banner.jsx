@@ -1,4 +1,5 @@
 import React from 'react'
+// import banner from '../../public/image.png'
 import banner from '../../public/image.png'
 // import banner from '../../public/book.jpg'
 const Banner = () => {
@@ -16,7 +17,7 @@ const Banner = () => {
 </label>
 
         </div>
-        <button className="btn mt-6 mb-6 btn-secondary">Secondary</button>
+        <button className="btn mt-6 mb-6 btn-secondary">Get Started</button>
         </div>
         <div className='order-1 w-full md:w-1/2 my-10'>
         <img src={banner} className='w-92 h-92 rounded-2xl' alt="" />
